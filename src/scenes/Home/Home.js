@@ -1,6 +1,10 @@
-import React from 'react';
-import { Flex } from 'rebass';
+import React, { Fragment } from 'react';
+import HomeGameTableContainer from './HomeGameTableContainer';
 
-const Home = () => <Flex />;
+const Home = () => (
+  <Fragment>
+    <HomeGameTableContainer />
+  </Fragment>
+);
 
 export default Home;

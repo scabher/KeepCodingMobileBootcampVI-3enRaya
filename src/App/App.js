@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider as StoreProvider } from 'react-redux';
 import { Provider as StyleProvider } from 'rebass';
 import { injectGlobal } from 'styled-components';
@@ -19,21 +19,21 @@ injectGlobal`
 `;
 
 const App = () => (
-  // <StoreProvider store={store}>
-  //   <PersistGate persistor={persistor} loading={null}>
-  <StyleProvider theme={theme}>
-    <BrowserRouter>
-      <Main>
-        <Header />
-        {/* <Content>
+  <StoreProvider store={store}>
+    <PersistGate persistor={persistor} loading={null}>
+      <StyleProvider theme={theme}>
+        <BrowserRouter>
+          <Main>
+            <Header />
+            <Content>
               <Route path="/" exact component={Home} />
               <Route path="/history" component={History} />
-            </Content> */}
-      </Main>
-    </BrowserRouter>
-  </StyleProvider>
-  //   </PersistGate>
-  // </StoreProvider>
+            </Content>
+          </Main>
+        </BrowserRouter>
+      </StyleProvider>
+    </PersistGate>
+  </StoreProvider>
 );
 
 export default App;
