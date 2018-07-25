@@ -1,10 +1,14 @@
 import initialState from './initialState';
-import { GAME_SET_CELLS } from './actions';
+import { GAME_RESET, GAME_SET_CELLS } from './actions';
 
 const gameReducer = (state = initialState, { type, payload }) => {
+  console.log('gameReducer', state);
+  console.log('gameReducer', payload);
   switch (type) {
     case GAME_SET_CELLS:
-      return { ...state, cells: payload };
+      return { ...state, ...payload };
+    case GAME_RESET:
+      return initialState;
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { DEFAULT_NUMBER_CELLS, players } from '../../constants';
 
 let initialState = {
-  cells: [],
+  cells: ['1', '2'],
   turnOf: players.PLAYER1,
   isFinished: false,
 };

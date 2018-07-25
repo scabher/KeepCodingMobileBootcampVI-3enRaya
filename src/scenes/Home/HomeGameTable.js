@@ -1,20 +1,44 @@
-import React from 'react';
-import { Flex, Box } from 'rebass';
+import React, { Fragment } from 'react';
+import { Flex, Box, Button, Badge, Lead } from 'rebass';
 
-const HomeGameTable = ({ cells, onClick }) => (
-  <Flex mx={-3} flexWrap="wrap">
-    {cells.map(({ color, bgcolor }) => (
-      <Box
-        width={[1, 1 / 3]}
-        p={3}
-        color={color}
-        bg={bgcolor}
-        onClick={onClick()}
-      >
-        Flex
-      </Box>
-    ))}
-  </Flex>
+const HomeGameTable = ({
+  cells,
+  children,
+  player,
+  bgplayer,
+  onCellClick,
+  onResetClick,
+}) => (
+  <Fragment>
+    <Box py={3}>
+      <Flex justifyContent="flex-end">
+        <Lead textAlign="center">
+          <Badge bg={bgplayer}>{player}</Badge>
+        </Lead>
+      </Flex>
+    </Box>
+    <Flex mx={-3} flexWrap="wrap">
+      {cells.map(({ id, color, bgcolor }) => (
+        <Box
+          key={id}
+          width={[1, 1 / 3]}
+          p={3}
+          color={color}
+          bg={bgcolor}
+          onClick={onCellClick()}
+        >
+          Flex
+        </Box>
+      ))}
+    </Flex>
+    <Box py={3}>
+      <Flex justifyContent="center">
+        <Button bg="yellow" fontSize={3} onClick={onResetClick()}>
+          {children}
+        </Button>
+      </Flex>
+    </Box>
+  </Fragment>
 );
 
 export default HomeGameTable;
