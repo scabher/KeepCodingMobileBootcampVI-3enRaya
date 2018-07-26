@@ -14,20 +14,11 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   console.log(state);
-  const cells = [];
-  for (let index = 0; index < 9; index++) {
-    cells[index] = {
-      id: index,
-      color: index % 2 === 0 ? 'white' : 'black',
-      bgcolor: index % 2 === 0 ? 'black' : 'white',
-    };
-  }
-
   return {
-    cells,
+    cells: state.gameReducer.cells,
     bg: 'red',
     children: 'Reset',
-    player: 'Player 1',
+    turnOf: state.gameReducer.turnOf,
   };
 };
 

@@ -4,8 +4,7 @@ import { Flex, Box, Button, Badge, Lead } from 'rebass';
 const HomeGameTable = ({
   cells,
   children,
-  player,
-  bgplayer,
+  turnOf,
   onCellClick,
   onResetClick,
 }) => (
@@ -13,18 +12,17 @@ const HomeGameTable = ({
     <Box py={3}>
       <Flex justifyContent="flex-end">
         <Lead textAlign="center">
-          <Badge bg={bgplayer}>{player}</Badge>
+          <Badge bg={turnOf.bgColor}>{turnOf.name}</Badge>
         </Lead>
       </Flex>
     </Box>
     <Flex mx={-3} flexWrap="wrap">
-      {cells.map(({ id, color, bgcolor }) => (
+      {cells.map(({ id, player }) => (
         <Box
           key={id}
           width={[1, 1 / 3]}
           p={3}
-          color={color}
-          bg={bgcolor}
+          bg={player.bgColor}
           onClick={onCellClick()}
         >
           Flex
