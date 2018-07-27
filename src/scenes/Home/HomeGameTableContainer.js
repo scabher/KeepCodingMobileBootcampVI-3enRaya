@@ -1,14 +1,18 @@
 import { connect } from 'react-redux';
-import { gameSetCells as gameSetCellsACT } from '../../store';
+import {
+  gameReset as gameResetACT,
+  gameSetCell as gameSetCellACT,
+} from '../../store';
 import HomeGameTable from './HomeGameTable';
 
 const mapDispatchToProps = dispatch => {
   return {
     onCellClick: value => () => {
-      console.log(value);
-      dispatch(gameSetCellsACT(value));
+      dispatch(gameSetCellACT(value));
     },
-    onResetClick: value => () => alert('Click on Reset'),
+    onResetClick: value => () => {
+      dispatch(gameResetACT());
+    },
   };
 };
 

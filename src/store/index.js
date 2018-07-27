@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import localforage from 'localforage';
 import rootReducer from './reducer';
 
-export { gameSetCells } from './actions';
+export { gameReset, gameSetCell, gameSetCells } from './actions';
 
 const persistConfig = {
   key: 'root',
