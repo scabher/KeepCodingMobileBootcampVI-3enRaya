@@ -23,6 +23,8 @@ const mapStateToProps = state => {
     bg: 'red',
     children: 'Reset',
     turnOf: state.gameReducer.turnOf,
+    isFinished: state.gameReducer.isFinished,
+    winner: state.gameReducer.winner,
   };
 };
 

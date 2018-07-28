@@ -7,6 +7,7 @@ const basicColors = {
   secondary: desaturate(0.9, '#0099cc'),
   success: 'green',
   danger: 'red',
+  btnPrimary: '#f63',
 };
 
 const theme = {
