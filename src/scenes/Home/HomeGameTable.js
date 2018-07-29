@@ -22,15 +22,16 @@ const HomeGameTable = ({
   cells,
   children,
   turnOf,
-  isFinished,
+  showResult,
   winner,
   onCellClick,
   onResetClick,
+  onResultClick,
 }) => (
   <Fragment>
     <div>
-      {isFinished && (
-        <div>
+      {showResult && (
+        <div onClick={onResultClick()}>
           <Fixed top={0} right={0} bottom={0} left={0} />
           <BorderedModal width={300}>
             <Flex justifyContent="center">

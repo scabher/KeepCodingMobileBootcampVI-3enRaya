@@ -1,1 +1,1 @@
-export { gameReset, gameSetCell, gameSetCells } from './game';
+export { gameReset, gameSetCell, gameResultClick } from './game';

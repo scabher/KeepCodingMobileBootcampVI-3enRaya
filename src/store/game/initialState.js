@@ -5,6 +5,7 @@ let initialState = {
   turnOf: players.PLAYER1,
   isFinished: false,
   winner: players.NONE,
+  showResult: false,
 };
 
 for (let index = 0; index < DEFAULT_NUMBER_CELLS; index++) {
