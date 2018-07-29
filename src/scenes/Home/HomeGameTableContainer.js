@@ -4,6 +4,7 @@ import {
   gameReset as gameResetACT,
   gameResultClick as gameResultClickACT,
   gameSetCell as gameSetCellACT,
+  historyAdd as historyAddACT,
   gameCellsSelector,
   gameTurnOfSelector,
   gameShowResultSelector,
@@ -12,17 +13,36 @@ import {
 import HomeGameTable from './HomeGameTable';
 
 class HomeGameContainer extends Component {
-  componentDidMount() {
-    console.log('componentDidMount');
-    console.log(this.props);
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.showResult) {
+      this.props.onGameFinished({
+        winner: nextProps.winner.name,
+        createdAt: new Date(),
+      });
+    }
   }
 
   render() {
-    return <HomeGameTable />;
+    const {
+      cells,
+      turnOf,
+      showResult,
+      winner,
+      onCellClick,
+      onResetClick,
+      onResultClick,
+    } = this.props;
+    return (
+      <HomeGameTable
+        cells={cells}
+        turnOf={turnOf}
+        showResult={showResult}
+        winner={winner}
+        onCellClick={onCellClick}
+        onResetClick={onResetClick}
+        onResultClick={onResultClick}
+      />
+    );
   }
 }
 
@@ -36,6 +56,9 @@ const mapDispatchToProps = dispatch => {
     },
     onResetClick: value => () => {
       dispatch(gameResetACT());
+    },
+    onGameFinished: value => {
+      dispatch(historyAddACT(value));
     },
   };
 };

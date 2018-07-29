@@ -8,9 +8,7 @@ const StyledText = styled(Text)`
 
 const HistoryListRow = ({ winner, createdAt, heading }) => (
   <Flex py={1} px={2}>
-    <StyledText fontWeight={heading ? 'bold' : 'normal'}>
-      {winner.name}
-    </StyledText>
+    <StyledText fontWeight={heading ? 'bold' : 'normal'}>{winner}</StyledText>
     <StyledText fontWeight={heading ? 'bold' : 'normal'}>
       {createdAt}
     </StyledText>

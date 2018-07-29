@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {
+  historyGetAll as historyGetAllACT,
+  formatedHistorySelector,
+} from '../../store';
 import HistoryList from './HistoryList';
 
-// import { Box, Message } from 'rebass';
-// import HomeListPomodoro from './HomeListPomodoro';
-// import { Card } from '../../components';
-
 class History extends Component {
+  componentDidMount() {
+    const { historyGetAll } = this.props;
+    historyGetAll();
+  }
+
   render() {
-    console.log('History RENDERIZA');
-    const { games, gamesLength } = this.props;
-    return <HistoryList games={games} gamesLength={gamesLength} />;
+    const { games } = this.props;
+    return <HistoryList games={games} />;
   }
 }
 
 const mapStateToProps = state => ({
-  games: [],
-  gamesLength: 0,
+  games: formatedHistorySelector(state),
 });
 
 const mapDispatchToProps = {
-  //historyGet: historyGetACT,
+  historyGetAll: historyGetAllACT,
 };
 
 export default connect(

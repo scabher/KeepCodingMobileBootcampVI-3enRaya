@@ -3,12 +3,20 @@ import { persistStore, persistReducer } from 'redux-persist';
 import localforage from 'localforage';
 import rootReducer from './reducer';
 
-export { gameReset, gameSetCell, gameResultClick } from './actions';
+export {
+  gameReset,
+  gameSetCell,
+  gameResultClick,
+  historyAdd,
+  historyGetAll,
+} from './actions';
+
 export {
   gameCellsSelector,
   gameTurnOfSelector,
   gameShowResultSelector,
   gameWinnerSelector,
+  formatedHistorySelector,
 } from './selectors';
 
 const persistConfig = {
