@@ -22,7 +22,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   // const cells = gameCellsSelector(state);
   return {
     cells: state.gameReducer.cells,
