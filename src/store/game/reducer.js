@@ -5,21 +5,10 @@ import { DEFAULT_NUMBER_CELLS, players } from '../../constants';
 const gameReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GAME_SET_CELL:
-      let newState = applyGameRules(state, payload);
-      return {
-        ...state,
-        ...{
-          cells: newState.cells,
-          turnOf: newState.turnOf,
-          isFinished: newState.isFinished,
-          showResult: newState.showResult,
-          winner: newState.winner,
-        },
-      };
+      return applyGameRules(state, payload);
     case GAME_RESULT_CLICK:
       return { ...state, ...{ showResult: false } };
     case GAME_RESET:
-      console.log('GAME_RESET - Initial state:', initialState);
       return initialState;
     default:
       return state;
@@ -29,7 +18,7 @@ const gameReducer = (state = initialState, { type, payload }) => {
 export default gameReducer;
 
 let applyGameRules = (state, payload) => {
-  // Click on a non-free
+  // Click on a non-free cell
   if (
     state.isFinished ||
     state.cells[payload].player.name !== players.NONE.name
@@ -37,7 +26,8 @@ let applyGameRules = (state, payload) => {
     return state;
   }
 
-  let newCells = Object.assign([], state.cells);
+  // Deep copy of cells
+  let newCells = JSON.parse(JSON.stringify(state.cells));
   newCells[payload].player = state.turnOf;
 
   let newState = {

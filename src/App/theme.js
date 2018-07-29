@@ -3,11 +3,10 @@ import { tint, desaturate } from 'polished';
 const basicColors = {
   black: '#000',
   white: '#fff',
-  primary: '#EF3B10',
   secondary: desaturate(0.9, '#0099cc'),
-  success: 'green',
-  danger: 'red',
-  btnPrimary: '#f63',
+  btnPrimary: '#ff9f1a',
+  player1: '#1e3799',
+  player2: '#eb2f06',
 };
 
 const theme = {
