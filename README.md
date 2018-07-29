@@ -33,3 +33,7 @@ Se ha usado un estado para la partida en curso con los siguientes datos:
 - isFinished: Indicará si el juego se ha terminado o no
 - winner: Indicará el ganador (si lo hubiera)
 - showResult: Flag para mostrar el mensaje de fin de partida
+
+Se ha usado un estado para el histórico de partidas con los siguientes datos:
+
+- history: Array que contendrá los datos de las partidas finalizadas (nombre y fecha/hora de la partida)
