@@ -16,7 +16,7 @@ class HomeGameContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.showResult) {
       this.props.onGameFinished({
-        winner: nextProps.winner.name,
+        winner: nextProps.winner.name === '' ? 'Draw' : nextProps.winner.name,
         createdAt: new Date(),
       });
     }
