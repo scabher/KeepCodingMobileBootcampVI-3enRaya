@@ -4,7 +4,12 @@ import localforage from 'localforage';
 import rootReducer from './reducer';
 
 export { gameReset, gameSetCell, gameResultClick } from './actions';
-export { gameCellsSelector } from './selectors';
+export {
+  gameCellsSelector,
+  gameTurnOfSelector,
+  gameShowResultSelector,
+  gameWinnerSelector,
+} from './selectors';
 
 const persistConfig = {
   key: 'root',

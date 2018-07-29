@@ -4,6 +4,9 @@ import {
   gameResultClick as gameResultClickACT,
   gameSetCell as gameSetCellACT,
   gameCellsSelector,
+  gameTurnOfSelector,
+  gameShowResultSelector,
+  gameWinnerSelector,
 } from '../../store';
 import HomeGameTable from './HomeGameTable';
 
@@ -22,14 +25,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  // const cells = gameCellsSelector(state);
   return {
-    cells: state.gameReducer.cells,
+    cells: gameCellsSelector(state),
     bg: 'red',
     children: 'Reset',
-    turnOf: state.gameReducer.turnOf,
-    showResult: state.gameReducer.showResult,
-    winner: state.gameReducer.winner,
+    turnOf: gameTurnOfSelector(state),
+    showResult: gameShowResultSelector(state),
+    winner: gameWinnerSelector(state),
   };
 };
 
