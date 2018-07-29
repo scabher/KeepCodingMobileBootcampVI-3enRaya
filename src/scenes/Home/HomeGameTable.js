@@ -20,7 +20,6 @@ const BorderedModal = styled(Modal)`
 
 const HomeGameTable = ({
   cells,
-  children,
   turnOf,
   showResult,
   winner,
@@ -72,7 +71,7 @@ const HomeGameTable = ({
     <Box py={3}>
       <Flex justifyContent="center">
         <Button bg="btnPrimary" fontSize={3} onClick={onResetClick()}>
-          {children}
+          Reset
         </Button>
       </Flex>
     </Box>

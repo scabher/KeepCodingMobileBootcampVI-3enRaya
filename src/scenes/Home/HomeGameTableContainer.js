@@ -43,8 +43,6 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     cells: gameCellsSelector(state),
-    bg: 'red',
-    children: 'Reset',
     turnOf: gameTurnOfSelector(state),
     showResult: gameShowResultSelector(state),
     winner: gameWinnerSelector(state),
