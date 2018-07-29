@@ -1,8 +1,30 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import HistoryList from './HistoryList';
+
 // import { Box, Message } from 'rebass';
 // import HomeListPomodoro from './HomeListPomodoro';
 // import { Card } from '../../components';
 
-const HistoryList = ({ games, gamesLength }) => <div>HistoryList</div>;
+class History extends Component {
+  render() {
+    console.log('History RENDERIZA');
+    const { games, gamesLength } = this.props;
+    return <HistoryList games={games} gamesLength={gamesLength} />;
+  }
+}
 
-export default HistoryList;
+const mapStateToProps = state => ({
+  games: [],
+  gamesLength: 0,
+});
+
+const mapDispatchToProps = {
+  //historyGet: historyGetACT,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(History);

@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   gameReset as gameResetACT,
@@ -6,6 +7,21 @@ import {
   gameCellsSelector,
 } from '../../store';
 import HomeGameTable from './HomeGameTable';
+
+class HomeGameContainer extends Component {
+  componentDidMount() {
+    console.log('componentDidMount');
+    console.log(this.props);
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  render() {
+    return <HomeGameTable />;
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -37,4 +53,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomeGameTable);
+)(HomeGameContainer);
